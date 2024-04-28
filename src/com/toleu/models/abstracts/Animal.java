@@ -3,9 +3,12 @@ package com.toleu.models.abstracts;
 import com.toleu.sevice.AnimalControl;
 
 public abstract class Animal extends Entity implements AnimalControl {
-    private boolean isMovedInThisLap = false;
+   private int healthPercent;
+    private boolean isMovedInThisLap;
     protected Animal(Double weight, Integer maxCountOnField, Integer speed, Double kgToFullEating) {
         super(weight, maxCountOnField, speed, kgToFullEating);
+        this.healthPercent = 100;
+        this.isMovedInThisLap = false;
     }
 
     @Override

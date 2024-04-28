@@ -3,7 +3,7 @@ package com.toleu;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.toleu.configuration.AnimalRelationship;
 import com.toleu.configuration.EntityCharacteristicConfig;
-import com.toleu.configuration.FieldSizeConfig;
+import com.toleu.configuration.IslandConfig;
 import com.toleu.models.Island;
 import com.toleu.models.abstracts.Animal;
 import com.toleu.models.abstracts.Entity;
@@ -18,18 +18,28 @@ import com.toleu.sevice.impl.MoveServiceImpl;
 import java.util.*;
 import java.util.stream.IntStream;
 
+import static com.toleu.consts.Consts.*;
+
 public class main {
+
+
     public static void main(String[] args){
+        ObjectMapper objectMapper = new ObjectMapper();
+        EntityCharacteristicConfig entityCharacteristicConfig = new EntityCharacteristicConfig(objectMapper, PATH_TO_ENTITY_CHARACTERISTICS);
+        AnimalRelationship animalRelationship = new AnimalRelationship(objectMapper, PATH_TO_POSIBILITY);
+        IslandConfig islandConfig = new IslandConfig(PATH_TO_SETTINGS);
+
+        // stage to change default settings
+        System.out.println("Поменять характерстики");
+        islandConfig.setWidth(100);
 
         Random r = new Random();
-        ObjectMapper objectMapper = new ObjectMapper();
-        EntityCharacteristicConfig entityCharacteristicConfig = new EntityCharacteristicConfig(objectMapper, "resources/possibility_of_eating.json");
-        AnimalRelationship animalRelationship = new AnimalRelationship(objectMapper,"resources/possibility_of_eating.json");
-        FieldSizeConfig fieldSizeConfig = new FieldSizeConfig(100,20);
+
+
 
         ChooseDirectionServiceImpl chooseDirectionService = new ChooseDirectionServiceImpl(r);
 
-        Island island = createIsland(fieldSizeConfig);
+        Island island = createIsland(islandConfig);
         MoveService moveService = new MoveServiceImpl(island);
         int maxPlantOnField = getMaxCountOnField(entityCharacteristicConfig,EntityType.GRASS);
        // int maxWolfOnField = getMaxCountOnField(entityCharacteristicConfig,EntityType.WOLF);
@@ -47,11 +57,12 @@ public class main {
                         .forEach(value::add));
 
 
+        // move wolf
         for (Map.Entry<Field, List<Entity>> fieldListEntry : island.getIsland().entrySet()) {
             Field field = fieldListEntry.getKey();
             List<Animal> entities = fieldListEntry.getValue()
                     .stream()
-                    .filter(el > el instanceof Animal)
+                    .filter(Animal.class::isInstance)
                     .map(el -> (Animal) el)
                     .toList();
             for(Animal entity : entities){
@@ -85,11 +96,11 @@ public class main {
                 .get(entityType)
                 .getSpeed();
     }
-    private static Island createIsland(FieldSizeConfig fieldSizeConfig) {
+    private static Island createIsland(IslandConfig islandConfig) {
 
         Map<Field, List<Entity>> island = new HashMap<>();
-        for (int i = 0; i < fieldSizeConfig.getHeight(); i++) {
-            for (int j = 0; j < fieldSizeConfig.getWidth(); j++) {
+        for (int i = 0; i < islandConfig.getHeight(); i++) {
+            for (int j = 0; j < islandConfig.getWidth(); j++) {
                 Field f = new Field(i,j);
                 island.put(f,new ArrayList<>());
             }
