@@ -5,8 +5,8 @@
   "percent" : 80
 },
 {
-"from" : "mouse",
-"to" : "wolf",
-"percent" : 0
+   "from" : "mouse",
+   "to" : "wolf",
+   "percent" : 0
 }
 ]

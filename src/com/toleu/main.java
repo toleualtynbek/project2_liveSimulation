@@ -24,17 +24,14 @@ public class main {
 
 
     public static void main(String[] args){
+        Random r = new Random();
         ObjectMapper objectMapper = new ObjectMapper();
         EntityCharacteristicConfig entityCharacteristicConfig = new EntityCharacteristicConfig(objectMapper, PATH_TO_ENTITY_CHARACTERISTICS);
-        AnimalRelationship animalRelationship = new AnimalRelationship(objectMapper, PATH_TO_POSIBILITY);
+        AnimalRelationship animalRelationship = new AnimalRelationship(objectMapper, PATH_TO_POSIBILITY_OF_EATING);
         IslandConfig islandConfig = new IslandConfig(PATH_TO_SETTINGS);
 
         // stage to change default settings
-        System.out.println("Поменять характерстики");
-        islandConfig.setWidth(100);
-
-        Random r = new Random();
-
+       // updateSettings(islandConfig, AnimalRelationship animalRelationship, EntityCharacteristicConfig entityCharacteristicConfig);
 
 
         ChooseDirectionServiceImpl chooseDirectionService = new ChooseDirectionServiceImpl(r);
@@ -42,7 +39,7 @@ public class main {
         Island island = createIsland(islandConfig);
         MoveService moveService = new MoveServiceImpl(island);
         int maxPlantOnField = getMaxCountOnField(entityCharacteristicConfig,EntityType.GRASS);
-       // int maxWolfOnField = getMaxCountOnField(entityCharacteristicConfig,EntityType.WOLF);
+        int maxWolfOnField = getMaxCountOnField(entityCharacteristicConfig,EntityType.WOLF);
 
         // fill plants
         island.getIsland().values()
@@ -52,7 +49,7 @@ public class main {
 
         // fill wolves
         island.getIsland().values()
-                .forEach(value -> IntStream.range(0, r.nextInt(maxPlantOnField))
+                .forEach(value -> IntStream.range(0, r.nextInt(maxWolfOnField))
                         .mapToObj(i -> createWolf(entityCharacteristicConfig))
                         .forEach(value::add));
 
@@ -75,6 +72,11 @@ public class main {
 
         System.out.println(island);
     }
+
+   /* private static void updateSettings(IslandConfig islandConfig, AnimalRelationship animalRelationship, EntityCharacteristicConfig entityCharacteristicConfig) {
+        System.out.println("Поменять характерстики");
+        islandConfig.setWidth(100);
+    }*/
 
     private static Grass createGrass(EntityCharacteristicConfig entityCharacteristicConfig) {
         return new Grass(entityCharacteristicConfig.getEntityMapConfig().get(EntityType.GRASS));

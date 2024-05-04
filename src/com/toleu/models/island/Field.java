@@ -14,6 +14,7 @@ public class Field {
     }
 
     public int getY() {
+
         return y;
     }
 }
