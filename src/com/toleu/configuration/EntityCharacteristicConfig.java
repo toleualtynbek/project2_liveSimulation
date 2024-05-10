@@ -23,7 +23,6 @@ public class EntityCharacteristicConfig {
     }
 
     public EntityCharacteristicConfig(ObjectMapper objectMapper, String pathToJson) {
-        //TODO kod which parse json file to entityMapConfig
 
         HashMap<EntityType,Entity> entityMapConfig = new HashMap<>();
         File file = new File(pathToJson);
@@ -43,10 +42,6 @@ public class EntityCharacteristicConfig {
             }
             entityMapConfig.put(value,entity);
         }
-
-
-       // entityMapConfig.put(EntityType.GRASS,new Entity(10.0,100,null,null));
-       // entityMapConfig.put(EntityType.WOLF,new Entity(100.0,10,1,10.0));
 
         this.entityMapConfig = entityMapConfig;
     }

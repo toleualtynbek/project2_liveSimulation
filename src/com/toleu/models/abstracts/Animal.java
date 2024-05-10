@@ -12,6 +12,10 @@ public abstract class Animal extends Entity implements AnimalControl {
         this.isMovedInThisLap = false;
     }
 
+    public Animal() {
+        super();
+    }
+
     public int getHealthPercent() {
         return healthPercent;
     }

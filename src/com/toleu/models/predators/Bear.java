@@ -3,6 +3,10 @@ package com.toleu.models.predators;
 import com.toleu.models.abstracts.Entity;
 
 public class Bear extends Predator{
+    public Bear() {
+        super();
+    }
+
     protected Bear(Double weight,
                    Integer maxCountOnField,
                    Integer speed,

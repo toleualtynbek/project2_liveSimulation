@@ -13,6 +13,10 @@ public class Entity {
         this.kgToFullEating = kgToFullEating;
     }
 
+    public Entity() {
+
+    }
+
     public Double getWeight() {
         return weight;
     }

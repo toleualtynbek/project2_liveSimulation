@@ -5,6 +5,10 @@ import com.toleu.models.enums.EntityType;
 import com.toleu.models.plants.Plant;
 
 public class Grass extends Plant {
+    public Grass() {
+        super();
+    }
+
     public Grass(Double weight, Integer maxCountOnField, Integer speed, Double kgToFullEating) {
         super(weight, maxCountOnField, speed, kgToFullEating);
     }

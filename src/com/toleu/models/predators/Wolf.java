@@ -18,4 +18,8 @@ public class Wolf extends Predator {
                 entity.getSpeed(),
                 entity.getKgToFullEating());
     }
+
+    public Wolf() {
+        super();
+    }
 }

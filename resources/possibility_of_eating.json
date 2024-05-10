@@ -1,12 +1,167 @@
 [
-{
-  "from" : "wolf",
-  "to" : "mouse",
-  "percent" : 80
-},
-{
-   "from" : "mouse",
+  {
+   "from" : "wolf",
    "to" : "wolf",
-   "percent" : 0
-}
+   "percent" : null
+  },
+  {
+    "from" : "wolf",
+    "to" : "boa",
+    "percent" : 0
+  },
+  {
+    "from" : "wolf",
+    "to" : "fox",
+    "percent" : 0
+  },
+  {
+    "from" : "wolf",
+    "to" : "bear",
+    "percent" : 0
+  },
+  {
+    "from" : "wolf",
+    "to" : "eagle",
+    "percent" : 0
+  },
+  {
+    "from" : "wolf",
+    "to" : "horse",
+    "percent" : 10
+  },
+  {
+    "from" : "wolf",
+    "to" : "deer",
+    "percent" : 15
+  },
+  {
+    "from" : "wolf",
+    "to" : "rabbit",
+    "percent" : 60
+  },
+  {
+    "from" : "wolf",
+    "to" : "mouse",
+    "percent" : 80
+  },
+  {
+    "from" : "wolf",
+    "to" : "goat",
+    "percent" : 60
+  },
+  {
+    "from" : "wolf",
+    "to" : "sheep",
+    "percent" : 70
+  },
+  {
+    "from" : "wolf",
+    "to" : "boar",
+    "percent" : 15
+  },
+  {
+    "from" : "wolf",
+    "to" : "buffalo",
+    "percent" : 10
+  },
+  {
+    "from" : "wolf",
+    "to" : "duck",
+    "percent" : 40
+  },
+  {
+    "from" : "wolf",
+    "to" : "caterpillar",
+    "percent" : 0
+  },
+  {
+    "from" : "wolf",
+    "to" : "grass",
+    "percent" : 0
+  },
+  {
+    "from" : "boa",
+    "to" : "wolf",
+    "percent" : 0
+  },
+  {
+    "from" : "boa",
+    "to" : "boa",
+    "percent" : null
+  },
+  {
+    "from" : "boa",
+    "to" : "fox",
+    "percent" : 15
+  },
+  {
+    "from" : "boa",
+    "to" : "bear",
+    "percent" : 0
+  },
+  {
+    "from" : "boa",
+    "to" : "eagle",
+    "percent" : 0
+  },
+  {
+    "from" : "boa",
+    "to" : "horse",
+    "percent" : 0
+  },
+  {
+    "from" : "boa",
+    "to" : "deer",
+    "percent" : 0
+  },
+  {
+    "from" : "boa",
+    "to" : "rabbit",
+    "percent" : 20
+  },
+  {
+    "from" : "boa",
+    "to" : "mouse",
+    "percent" : 40
+  },
+  {
+    "from" : "boa",
+    "to" : "goat",
+    "percent" : 0
+  },
+  {
+    "from" : "boa",
+    "to" : "sheep",
+    "percent" : 0
+  },
+  {
+    "from" : "boa",
+    "to" : "boar",
+    "percent" : 0
+  },
+  {
+    "from" : "boa",
+    "to" : "buffalo",
+    "percent" : 0
+  },
+  {
+    "from" : "boa",
+    "to" : "duck",
+    "percent" : 10
+  },
+  {
+    "from" : "boa",
+    "to" : "caterpillar",
+    "percent" : 0
+  },
+  {
+    "from" : "wolf",
+    "to" : "grass",
+    "percent" : 0
+  },
+  {
+    "from" : "mouse",
+    "to" : "wolf",
+    "percent" : 0
+  }
 ]
